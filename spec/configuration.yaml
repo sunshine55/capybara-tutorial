@@ -1,0 +1,6 @@
+server1:
+  app_host: http://hvndemo2.herokuapp.com
+  users:
+    default: 
+      username: admin
+      password: admin123456
