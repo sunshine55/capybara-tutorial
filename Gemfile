@@ -5,5 +5,5 @@ group :test do
   gem "rspec"
   gem "selenium-client"
   gem "activesupport"
-  gem "selenium-webdriver"  
+  gem "selenium-webdriver"
 end

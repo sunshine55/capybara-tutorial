@@ -7,28 +7,28 @@ module Page
     include Capybara::DSL
     include Features::SessionHelper
     include RSpec::Expectations
-    include RSpec::Matchers    
+    include RSpec::Matchers
 
     @@test_run_id = Time.now.to_i
 
     def wait_for_ajax
-      wait_until { page.evaluate_script "jQuery.active === 0" }    
+      wait_until { page.evaluate_script "jQuery.active === 0" }
     end
 
     def fill_in_fields fields
-      fields.each do | field_name, value |    
+      fields.each do | field_name, value |
         fill_in field_name.to_s, :with => value
-      end      
+      end
     end
 
-    def fill_in_and_defocus locator, options={}      
+    def fill_in_and_defocus locator, options={}
       fill_in locator, options
       defocus_current_element
     end
 
     def defocus_current_element
-      page.execute_script "$(document.activeElement).blur()"
-      #find("body").click
+      #page.execute_script "$(document.activeElement).blur()"
+      find('body').click
     end
 
     def select_with_javascript value, options={}      
