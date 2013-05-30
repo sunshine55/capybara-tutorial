@@ -28,6 +28,14 @@ RSpec.configure do |config|
     capybara.default_driver = :selenium
     capybara.default_wait_time = 15
   end
+  
+  Capybara.register_driver :selenium_with_long_timeout do |app|
+    client = Selenium::WebDriver::Remote::Http::Default.new
+    client.timeout = 240
+    Capybara::Driver::Selenium.new(app, :browser => :firefox, :http_client => client)
+  end
+
+  Capybara.javascript_driver = :selenium_with_long_timeout
 
   Features::SessionHelper.configure do |session_config|
     session_config.users = configuration.users
@@ -41,12 +49,4 @@ RSpec.configure do |config|
   config.after(:each) do
     Page::Pages::clear
   end
-
-  Capybara.register_driver :selenium_with_long_timeout do |app|
-    client = Selenium::WebDriver::Remote::Http::Default.new
-    client.timeout = 240
-    Capybara::Driver::Selenium.new(app, :browser => :firefox, :http_client => client)
-  end
-
-  Capybara.javascript_driver = :selenium_with_long_timeout
 end
