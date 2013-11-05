@@ -22,7 +22,11 @@
 * http://relishapp.com/rspec
 * http://github.com/jnicklas/capybara (for actions such as click_link, click_button, etc...)
 * Good example of integration testing a non-Rails application with Capybara and Rspec http://testerstories.com/?p=30
-* Rails style coding guide https://github.com/bbatsov/rails-style-guide#rspec
+* Rails style coding guide:
+  - https://github.com/bbatsov/rails-style-guide#rspec
+  - http://betterspecs.org/
+* Ruby coding guide style:
+  - https://github.com/bbatsov/ruby-style-guide
 
 
 == RSpec guidelines
